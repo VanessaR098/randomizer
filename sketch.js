@@ -1,18 +1,18 @@
 let desserts = [{
   name: "cheesecake",
-  color: "white"
+  texture: "delicate"
 }, {
   name: "brownies",
-  color: "brown"
+  texture: "chewy"
 }, {
   name: "flan",
-  color: "tan"
+  texture: "jiggly"
 }, {
   name: "croissant",
-  color: "yellow"
+  texture: "fluffy"
 }, {
   name: "apple pie",
-  color: "golden"
+  texture: "crusty"
 }];
 
 let randomIndex;
@@ -59,7 +59,10 @@ function randomizer() {
     // this displays random name and splices it out of array
     background(random(200, 255));
     randomIndex = int(random(desserts.length));
-    text(desserts[randomIndex].name, 50, 50);
+    text(`${desserts[randomIndex].name}'s texture is
+    ${desserts[randomIndex].texture}`, 50, 50); //Template literals
+    /// NOTE: Template literals --> ex. `string text $(expression) string text`
+    //text(desserts[randomIndex].name + "'s texture is " + desserts[randomIndex].texture, 50, 50);
     desserts.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
