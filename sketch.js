@@ -48,7 +48,9 @@ function setup() {
 
 function draw() {
   if (animating == true) {
+    fill(random(255), random(255), random(255));
     ellipse(random(width), random(height), random(50, 200));
+
   }
 }
 
