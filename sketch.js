@@ -19,6 +19,9 @@ let randomIndex;
 let animating = false;
 let sweets = [];
 let imageCounter = 0;
+let ifImage = false;
+let button;
+
 //let counter = 0;
 
 function preload() {
@@ -28,13 +31,17 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight-100);
   background(250, 200, 100);
   textSize(32);
   imageMode(CENTER);
   frameRate(5);
 
   text("click to randomize!", 50, 50);
+
+  button = createButton("click to randomize!");
+  button.mousePressed(buttonPressed);
+  button.class("randomizerButton");
 
   //setTimeout(changeBackground, 1000); //1000 milliseconds = 1 second
   //no () after changeBackground function bc it's expecting the name of a function
@@ -79,11 +86,7 @@ function randomizer() {
     // this displays random name and splices it out of array
     background(random(200, 255));
 
-    randomIndex = int(random(desserts.length));
-    text(`${desserts[randomIndex].name}'s texture is
-    ${desserts[randomIndex].texture}`, 10, 50); //Template literals
-    /// NOTE: Template literals --> ex. `string text $(expression) string text`
-    //text(desserts[randomIndex].name + "'s texture is " + desserts[randomIndex].texture, 50, 50);
+
     image(sweets[imageCounter], width / 2, height / 2);
     if (imageCounter < sweets.length - 1) {
       imageCounter++;
@@ -91,12 +94,28 @@ function randomizer() {
       imageCounter = 0;
     }
 
-
-
-
-
-
-    desserts.splice(randomIndex, 1);
+    if(imageCounter == 0){
+      text(`${desserts[4].name}'s texture is
+      ${desserts[4].texture}`, 10, 50);
+    } else if(imageCounter == 1){
+        text(`${desserts[1].name}'s texture is
+        ${desserts[1].texture}`, 10, 50);
+      }else if(imageCounter == 2){
+          text(`${desserts[0].name}'s texture is
+          ${desserts[0].texture}`, 10, 50);
+        }else if(imageCounter == 3){
+            text(`${desserts[3].name}'s texture is
+            ${desserts[3].texture}`, 10, 50);
+          }else {
+              text(`${desserts[2].name}'s texture is
+              ${desserts[2].texture}`, 10, 50);
+            }
+    // randomIndex = int(random(desserts.length));
+    // text(`${desserts[randomIndex].name}'s texture is
+    // ${desserts[randomIndex].texture}`, 10, 50); //Template literals
+    /// NOTE: Template literals --> ex. `string text $(expression) string text`
+    //text(desserts[randomIndex].name + "'s texture is " + desserts[randomIndex].texture, 50, 50);
+    //desserts.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
     text("nothing left!", 50, 50);
@@ -106,7 +125,7 @@ function randomizer() {
 }
 
 
-function mousePressed() {
+function buttonPressed() {
   animating = true;
   setTimeout(randomizer, 2000);
 
