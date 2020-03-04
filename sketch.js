@@ -26,7 +26,7 @@ let button;
 
 function preload() {
   for (let i = 0; i <= 4; i++) {
-    sweets[i] = loadImage(`Images/dessert_${i}.JPG`);
+    sweets[i] = loadImage(`Images/dessert_${i}.jpg`);
   }
 }
 
