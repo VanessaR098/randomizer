@@ -17,13 +17,22 @@ let desserts = [{
 
 let randomIndex;
 let animating = false;
+let sweets = [];
+let imageCounter = 0;
 //let counter = 0;
 
+function preload() {
+  for (let i = 0; i <= 4; i++) {
+    sweets[i] = loadImage(`Images/dessert_${i}.JPG`);
+  }
+}
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   background(250, 200, 100);
   textSize(32);
+  imageMode(CENTER);
+  frameRate(5);
 
   text("click to randomize!", 50, 50);
 
@@ -47,9 +56,18 @@ function setup() {
 //}
 
 function draw() {
+
   if (animating == true) {
-    fill(random(255), random(255), random(255));
-    ellipse(random(width), random(height), random(50, 200));
+    clear();
+    image(sweets[imageCounter], width / 2, height / 2);
+
+    if (imageCounter < sweets.length - 1) {
+      imageCounter++;
+    } else {
+      imageCounter = 0;
+    }
+    //fill(random(255), random(255), random(255));
+    //ellipse(random(width), random(height), random(50, 200));
 
   }
 }
@@ -60,11 +78,24 @@ function randomizer() {
   if (desserts[0]) {
     // this displays random name and splices it out of array
     background(random(200, 255));
+
     randomIndex = int(random(desserts.length));
     text(`${desserts[randomIndex].name}'s texture is
-    ${desserts[randomIndex].texture}`, 50, 50); //Template literals
+    ${desserts[randomIndex].texture}`, 10, 50); //Template literals
     /// NOTE: Template literals --> ex. `string text $(expression) string text`
     //text(desserts[randomIndex].name + "'s texture is " + desserts[randomIndex].texture, 50, 50);
+    image(sweets[imageCounter], width / 2, height / 2);
+    if (imageCounter < sweets.length - 1) {
+      imageCounter++;
+    } else {
+      imageCounter = 0;
+    }
+
+
+
+
+
+
     desserts.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
