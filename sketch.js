@@ -17,7 +17,7 @@ let desserts = [{
 
 let randomIndex;
 let animating = false;
-let sweets = [];
+let pics = [];
 let imageCounter = 0;
 let ifImage = false;
 let button;
@@ -26,20 +26,20 @@ let button;
 
 function preload() {
   for (let i = 0; i <= 4; i++) {
-    sweets[i] = loadImage(`Images/dessert_${i}.jpg`);
+    pics[i] = loadImage(`Images/dessert_${i}.jpg`);
   }
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight-100);
+  createCanvas(windowWidth, windowHeight - 100);
   background(250, 200, 100);
   textSize(32);
   imageMode(CENTER);
   frameRate(5);
 
-  text("click to randomize!", 50, 50);
+  text("Got a sweet tooth?", 50, 50);
 
-  button = createButton("click to randomize!");
+  button = createButton("what are you craving??");
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
 
@@ -66,9 +66,9 @@ function draw() {
 
   if (animating == true) {
     clear();
-    image(sweets[imageCounter], width / 2, height / 2);
+    image(pics[imageCounter], width / 2, height / 2);
 
-    if (imageCounter < sweets.length - 1) {
+    if (imageCounter < pics.length - 1) {
       imageCounter++;
     } else {
       imageCounter = 0;
@@ -87,29 +87,30 @@ function randomizer() {
     background(random(200, 255));
 
 
-    image(sweets[imageCounter], width / 2, height / 2);
-    if (imageCounter < sweets.length - 1) {
+    image(pics[imageCounter], width / 2, height / 2);
+    if (imageCounter < pics.length - 1) {
       imageCounter++;
-    } else {
+    }  else {
       imageCounter = 0;
     }
 
-    if(imageCounter == 0){
+    if (imageCounter == 0) {
+      text(`${desserts[2].name}'s texture is
+      ${desserts[2].texture}`, 10, 50);
+    } else if (imageCounter == 1) {
       text(`${desserts[4].name}'s texture is
-      ${desserts[4].texture}`, 10, 50);
-    } else if(imageCounter == 1){
-        text(`${desserts[1].name}'s texture is
-        ${desserts[1].texture}`, 10, 50);
-      }else if(imageCounter == 2){
-          text(`${desserts[0].name}'s texture is
-          ${desserts[0].texture}`, 10, 50);
-        }else if(imageCounter == 3){
-            text(`${desserts[3].name}'s texture is
-            ${desserts[3].texture}`, 10, 50);
-          }else {
-              text(`${desserts[2].name}'s texture is
-              ${desserts[2].texture}`, 10, 50);
-            }
+        ${desserts[4].texture}`, 10, 50);
+    } else if (imageCounter == 2) {
+      text(`${desserts[1].name}' texture is
+          ${desserts[1].texture}`, 280, 100);
+    } else if (imageCounter == 3) {
+      text(`${desserts[0].name}'s texture is
+            ${desserts[0].texture}`, 10, 50);
+    } else {
+      text(`${desserts[3].name}'s texture is
+              ${desserts[3].texture}`, 10, 50);
+    }
+
     // randomIndex = int(random(desserts.length));
     // text(`${desserts[randomIndex].name}'s texture is
     // ${desserts[randomIndex].texture}`, 10, 50); //Template literals
