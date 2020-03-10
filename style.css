@@ -1,13 +1,41 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+body {
+  background-image: url("https://media.giphy.com/media/kGvbbAdN5pXe8/giphy.gif");
+  margin: 0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
 }
 canvas {
   display: block;
 
+
 }
 
 .randomizerButton{
-  padding: 20px;
-  background-color: pink;
+  background-color: rgba(201, 0, 76, 0.7);
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.row{
+  display: flex;
+}
+.column{
+  margin: 10px;
+  flex: 50%;
 }

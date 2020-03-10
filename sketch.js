@@ -1,18 +1,18 @@
 let desserts = [{
   name: "cheesecake",
-  texture: "delicate"
+  taste: "tart and sweet"
 }, {
   name: "brownies",
-  texture: "chewy"
+  taste: "chocolatey"
 }, {
   name: "flan",
-  texture: "jiggly"
+  taste: "creamy"
 }, {
   name: "croissant",
-  texture: "fluffy"
+  taste: "buttery"
 }, {
   name: "apple pie",
-  texture: "crusty"
+  taste: "fresh and syrupy"
 }];
 
 let randomIndex;
@@ -21,6 +21,8 @@ let pics = [];
 let imageCounter = 0;
 let ifImage = false;
 let button;
+let cnv;
+
 
 //let counter = 0;
 
@@ -31,7 +33,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight - 100);
+  cnv = createCanvas(windowWidth/2.5, windowHeight - 200);
+  cnv.parent("#canvasDiv");
   background(250, 200, 100);
   textSize(32);
   imageMode(CENTER);
@@ -39,9 +42,12 @@ function setup() {
 
   text("Got a sweet tooth?", 50, 50);
 
-  button = createButton("what are you craving??");
+  //button = createButton("what are you craving??");
+  button = select('#randButton');
   button.mousePressed(buttonPressed);
   button.class("randomizerButton");
+
+
 
   //setTimeout(changeBackground, 1000); //1000 milliseconds = 1 second
   //no () after changeBackground function bc it's expecting the name of a function
@@ -94,28 +100,28 @@ function randomizer() {
       imageCounter = 0;
     }
 
-    if (imageCounter == 0) {
-      text(`${desserts[2].name}'s texture is
-      ${desserts[2].texture}`, 10, 50);
-    } else if (imageCounter == 1) {
-      text(`${desserts[4].name}'s texture is
-        ${desserts[4].texture}`, 10, 50);
-    } else if (imageCounter == 2) {
-      text(`${desserts[1].name}' texture is
-          ${desserts[1].texture}`, 280, 100);
-    } else if (imageCounter == 3) {
-      text(`${desserts[0].name}'s texture is
-            ${desserts[0].texture}`, 10, 50);
-    } else {
-      text(`${desserts[3].name}'s texture is
-              ${desserts[3].texture}`, 10, 50);
+    if (imageCounter == 0) { //flan
+      text(`${desserts[2].name}'s taste
+      ${desserts[2].taste}`, 10, 50);
+    } else if (imageCounter == 1) { //apple pie
+      text(`${desserts[4].name}'s taste
+        ${desserts[4].taste}`, 10, 50);
+    } else if (imageCounter == 2) { //brownies
+      text(`${desserts[1].name}' taste
+          ${desserts[1].taste}`, 280, 100);
+    } else if (imageCounter == 3) { //cheescake
+      text(`${desserts[0].name}'s taste
+            ${desserts[0].taste}`, 10, 50);
+    } else { //quascant
+      text(`${desserts[3].name}'s taste
+              ${desserts[3].taste}`, 10, 50);
     }
 
     // randomIndex = int(random(desserts.length));
-    // text(`${desserts[randomIndex].name}'s texture is
-    // ${desserts[randomIndex].texture}`, 10, 50); //Template literals
+    // text(`${desserts[randomIndex].name}'s taste
+    // ${desserts[randomIndex].taste}`, 10, 50); //Template literals
     /// NOTE: Template literals --> ex. `string text $(expression) string text`
-    //text(desserts[randomIndex].name + "'s texture is " + desserts[randomIndex].texture, 50, 50);
+    //text(desserts[randomIndex].name + "'s taste " + desserts[randomIndex].taste, 50, 50);
     //desserts.splice(randomIndex, 1);
   } else {
     background(random(200, 255));
