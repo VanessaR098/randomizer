@@ -40,7 +40,8 @@ function setup() {
   imageMode(CENTER);
   frameRate(5);
 
-  text("Got a sweet tooth?", 50, 50);
+
+  text("Got a sweet tooth?", width/3.3, height/2);
 
   //button = createButton("what are you craving??");
   button = select('#randButton');
@@ -108,7 +109,7 @@ function randomizer() {
         ${desserts[4].taste}`, 10, 50);
     } else if (imageCounter == 2) { //brownies
       text(`${desserts[1].name}' taste
-          ${desserts[1].taste}`, 280, 100);
+          ${desserts[1].taste}`, 220, 80);
     } else if (imageCounter == 3) { //cheescake
       text(`${desserts[0].name}'s taste
             ${desserts[0].taste}`, 10, 50);
