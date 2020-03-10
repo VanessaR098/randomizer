@@ -21,7 +21,7 @@ canvas {
 
 .randomizerButton{
   background-color: rgba(201, 0, 76, 0.7);
-  border: none;
+  border: 2px solid white;
   color: black;
   padding: 15px 32px;
   text-align: center;
