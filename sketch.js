@@ -102,19 +102,19 @@ function randomizer() {
     }
 
     if (imageCounter == 0) { //flan
-      text(`${desserts[2].name}'s taste
+      text(`${desserts[2].name}s taste
       ${desserts[2].taste}`, 10, 50);
     } else if (imageCounter == 1) { //apple pie
-      text(`${desserts[4].name}'s taste
+      text(`${desserts[4].name}s taste
         ${desserts[4].taste}`, 10, 50);
     } else if (imageCounter == 2) { //brownies
-      text(`${desserts[1].name}' taste
+      text(`${desserts[1].name} taste
           ${desserts[1].taste}`, 220, 80);
     } else if (imageCounter == 3) { //cheescake
-      text(`${desserts[0].name}'s taste
+      text(`${desserts[0].name}s taste
             ${desserts[0].taste}`, 10, 50);
     } else { //quascant
-      text(`${desserts[3].name}'s taste
+      text(`${desserts[3].name}s taste
               ${desserts[3].taste}`, 10, 50);
     }
 
